@@ -23,7 +23,7 @@ public class PostService {
         Post post = postRepository.findById(postId).orElseThrow(
                 () -> new IllegalArgumentException("id가 존재하지 않습니다."));
 
-        List<Comment> comments = commentRepository.findByPostId(postId);
+        List<Comment> comments = post.getComments();
 
         List<CommentDto> commentDto = new ArrayList<>();
 
